@@ -1,0 +1,15 @@
+* {
+    background-color: rgb(234, 241, 246);
+}
+
+
+
+.card {
+    width: 15%;
+    display: inline-flex;
+    margin: 1%;
+    background-color: rgb(39, 17, 17);
+    min-width: 142px;
+    
+}
+
