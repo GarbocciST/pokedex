@@ -1,1 +1,1 @@
-# Proyecto de pokemon con Vite y React.
+# Proyecto de pokemon con Vite y React-redux.

@@ -2,37 +2,28 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { CardPokemons, SerachBar } from './components';
-import { getPokemons } from './store/pokemons';
+import { getPokemons } from './store';
 
 export const PokeApp = () => {
 
-    const { isLoading, page } = useSelector( state => state.pokemons);
+    const { isLoading, page, isSearch } = useSelector( state => state.pokemons);
     const dispatch = useDispatch();
 
 
     useEffect(() => {
         dispatch( getPokemons() );
     }, []); 
-  
-
-    // const pokeCargado = (pokemons.length >= 1)
-
-    // useEffect(() => {
-    //     dispatch( getIndexPokemons());
-    // }, [pokeCargado]);
     
-    // useEffect(() => {
-    //     dispatch( getIndexPokemons());
+    //* Componente extra (contentCardPokemons) y en el 
+    //* effect haga llamado al dispatch y tenga esa llamada exclusivamente a la imagen
 
-    // }, [pokemons])
-    
-    
+
     return (
         <>
             <h1>Pokedex</h1>
             <SerachBar />
             <button onClick={ () => dispatch(getPokemons(page - 1))} className="btn btn-primary m-1" disabled={isLoading}>{"<"}</button>
-            <p className="d-inline-flex"> {page}/125 </p>
+            <p className="d-inline-flex"> {page}/116 </p>
             <button onClick={ () => dispatch(getPokemons(page + 1))} className="btn btn-primary" disabled={isLoading}>{">"}</button>
             <hr />
 
