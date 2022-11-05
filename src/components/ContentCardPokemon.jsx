@@ -13,11 +13,14 @@ export const ContentCardPokemon = ({poke}) => {
                 <p><small className="text-muted">#{poke.id}  </small></p>
             </div>
             <div className="card-text d-flex justify-content-between">
-                <div>
+                <div className="card-type d-flex">
                 {
                     poke.types.map( (type) => {
                         return (
-                            <div key={type.type.name}>{type.type.name}</div>
+                            <div className="card-type-text" key={type.type.name}
+                            >
+                                {type.type.name}
+                            </div>
                         )
                     })
                 }

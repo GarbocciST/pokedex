@@ -6,13 +6,17 @@ import { getPokemons } from './store';
 
 export const PokeApp = () => {
 
-    const { isLoading, page, isSearch } = useSelector( state => state.pokemons);
+    const { isLoading, page, pokemons } = useSelector( state => state.pokemons);
     const dispatch = useDispatch();
 
 
     useEffect(() => {
         dispatch( getPokemons() );
     }, []); 
+   
+    // useEffect(() => {
+    //     localStorage.setItem(pokemons)
+    // }, [pokemons]); 
     
     //* Componente extra (contentCardPokemons) y en el 
     //* effect haga llamado al dispatch y tenga esa llamada exclusivamente a la imagen
@@ -32,7 +36,7 @@ export const PokeApp = () => {
                 ?
                 <span className="alert alert-danger form-control">cargando...</span>  
                 :      
-                <CardPokemons />
+                <CardPokemons pokemons={pokemons} />
                 
             }
 
