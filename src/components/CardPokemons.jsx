@@ -1,10 +1,6 @@
-import { useSelector } from "react-redux"
-import { ContentCardPokemon } from "./";
+import { ContentCardPokemon } from "./ContentCardPokemon"
 
-
-export const CardPokemons = () => {
-
-    const {pokemons} = useSelector(state => state.pokemons);
+export const CardPokemons = ({pokemons}) => {
 
     return (
         <>
