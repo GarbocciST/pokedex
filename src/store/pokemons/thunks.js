@@ -42,43 +42,27 @@ export const getPokemons = (page = 0) => {
 }
 
 
-// export const getAllPokemons = () => {
-//     return async(dispatch, getState) => {
+export const getThePokemon = (poke) => {
+    return async(dispatch, getState) => {
 
-//         try {
-//             dispatch(startLoadingPokemons());
+        try {
+            dispatch(startLoadingPokemons());
     
-//             const {data} = await pokemonApi.get(`pokemon?limit=100000&offset=0`);
-//             // console.log(data.results);
-    
-            
-//             const pokes = data.results;
-            
-//             const promesas = pokes.map( async (poke) => {
-//                 return await axios.get(poke.url);
-                
+            const {data} = await pokemonApi.get(`pokemon/${poke}/`);
+            // console.log(data.results);
 
-//             });
-
-//             const results = await Promise.all(promesas)
-            
-//             const idx = results.map( index => {
-//                 return index.data
-                
-//             });
-
-//             dispatch(setPokemons({ pokemons: idx, page: page }));
+            dispatch(setPokemons({ pokemons: [data], page: 0 }));
         
             
 
-//         } catch (error) {
-//             console.log(error);
-//             throw new Error ('No se puede cargar los pokemons');
-//         }
+        } catch (error) {
+            console.log(error);
+            throw new Error ('No se puede cargar los pokemons');
+        }
 
-//     }
+    }
 
-// }
+}
 
 
 

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { getPokemonByName } from "../helpers";
 import { useForm } from "../hooks"
-import { getPokemons, setPokemons } from "../store";
+import { getPokemons, getThePokemon, setPokemons } from "../store";
 
 
 export const SerachBar = () => {
@@ -12,13 +12,14 @@ export const SerachBar = () => {
     searchText: ""
   });
 
-  const pokemon = getPokemonByName(searchText);
+  // const pokemon = getPokemonByName(searchText);
   
   const onSearchSubmit = (event) => {
     event.preventDefault();
     
     if ( searchText.trim() <= 1) return dispatch(getPokemons());
-    dispatch(setPokemons({pokemons: pokemon, page: 0}))
+    dispatch(getThePokemon(searchText))
+    // dispatch(setPokemons({pokemons: pokemon, page: 0}))
     
   }
   
@@ -29,7 +30,7 @@ export const SerachBar = () => {
         <input type="text" name="searchText" value={searchText} onChange={onInputChange} className=" form-control" placeholder="Buscar pokemon..." />
       </div>
       <div className="col-1 d-inline-block p-1">
-        <button id="buscador" className=" btn btn-dark rounded-circle">🔍</button>
+        <button id="buscador" className=" btn btn-dark rounded-circle">Buscar</button>
       </div>
     </form>
     

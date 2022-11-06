@@ -6,7 +6,6 @@ export const CardPokemons = ({pokemons}) => {
         <>
             
             {
-
                 pokemons.map( (poke) => (
                     <ContentCardPokemon key={poke.name} poke={poke}/>
                 ))
