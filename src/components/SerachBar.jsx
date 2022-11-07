@@ -12,14 +12,20 @@ export const SerachBar = () => {
     searchText: ""
   });
 
-  // const pokemon = getPokemonByName(searchText);
+  
+  
   
   const onSearchSubmit = (event) => {
     event.preventDefault();
     
     if ( searchText.trim() <= 1) return dispatch(getPokemons());
-    dispatch(getThePokemon(searchText))
-    // dispatch(setPokemons({pokemons: pokemon, page: 0}))
+    
+    //* este si iria
+    dispatch(getThePokemon(searchText));
+
+    
+    // const pokemon = getPokemonByName(searchText);
+    // dispatch(setPokemons({pokemons: pokemon, page: 0}));
     
   }
   

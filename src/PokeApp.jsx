@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { CardPokemons, SerachBar } from './components';
+import { ButtonBar, CardPokemons, SerachBar } from './components';
 import { getPokemons } from './store';
 
 
@@ -46,9 +46,7 @@ export const PokeApp = () => {
         <>
             <h1>Pokedex</h1>
             <SerachBar />
-            <button onClick={ () => dispatch(getPokemons(page - 1))} className="btn btn-primary m-1 rounded-circle" disabled={isLoading || page < 1}>{"<"}</button>
-            <p className="d-inline-flex"> {page}/116 </p>
-            <button onClick={ () => dispatch(getPokemons(page + 1))} className="btn btn-primary rounded-circle" disabled={isLoading || page > 116}>{">"}</button>
+            <ButtonBar page={page} isLoading={isLoading}/>
             <hr />
 
             {   
