@@ -6,7 +6,7 @@ export const pokeSlice = createSlice({
         page: 0,
         pokemons: [],
         isLoading: false,
-        isSearch: false,
+        hasPokemon: true, 
     },
     reducers: {
         startLoadingPokemons: (state) => {
@@ -19,12 +19,16 @@ export const pokeSlice = createSlice({
             state.page = payload.page;
         },
         
-        searchPokemon: (state, {payload}) => {
-            state.isSearch = true;
+        findPokemon: (state, {payload}) => {
+            state.hasPokemon = true;
+        },
+     
+        notFindPokemon: (state, {payload}) => {
+            state.hasPokemon = false;
         }
      
     }
 });
 
 // Action creators are generated for each case reducer function
-export const { startLoadingPokemons, setPokemons, searchPokemon } = pokeSlice.actions;
+export const { startLoadingPokemons, setPokemons, searchPokemon, findPokemon, notFindPokemon } = pokeSlice.actions;

@@ -4,16 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CardPokemons, SerachBar } from './components';
 import { getPokemons } from './store';
 
+
 export const PokeApp = () => {
 
-    const { isLoading, page, pokemons } = useSelector( state => state.pokemons);
+    const { isLoading, page, pokemons, hasPokemon } = useSelector( state => state.pokemons);
     const dispatch = useDispatch();
 
     //* Grabar en localStorage
-    const savePagePokemons = () => {
-        localStorage.setItem('pokes', JSON.stringify(pokemons));
+    // const savePagePokemons = () => {
+    //     localStorage.setItem('pokes', JSON.stringify(pokemons));
        
-    }
+    // }
     
     // const loadPagePokemons = () => {
      
@@ -27,9 +28,9 @@ export const PokeApp = () => {
         dispatch( getPokemons() );
     }, []); 
    
-    useEffect(() => {
-        savePagePokemons();
-    }, [page]); 
+    // useEffect(() => {
+    //     savePagePokemons();
+    // }, [page]); 
    
     // useEffect(() => {
     //     loadPagePokemons();
@@ -45,17 +46,19 @@ export const PokeApp = () => {
         <>
             <h1>Pokedex</h1>
             <SerachBar />
-            <button onClick={ () => dispatch(getPokemons(page - 1))} className="btn btn-primary m-1 rounded-circle" disabled={isLoading}>{"<"}</button>
+            <button onClick={ () => dispatch(getPokemons(page - 1))} className="btn btn-primary m-1 rounded-circle" disabled={isLoading || page < 1}>{"<"}</button>
             <p className="d-inline-flex"> {page}/116 </p>
-            <button onClick={ () => dispatch(getPokemons(page + 1))} className="btn btn-primary rounded-circle" disabled={isLoading}>{">"}</button>
+            <button onClick={ () => dispatch(getPokemons(page + 1))} className="btn btn-primary rounded-circle" disabled={isLoading || page > 116}>{">"}</button>
             <hr />
 
-            {
-                (isLoading === true) 
-                ?
-                <span className="alert alert-danger form-control">cargando...</span>  
-                :      
-                <CardPokemons pokemons={pokemons} />
+            {   
+                (hasPokemon === false) ?
+                <span className="alert alert-warning form-control">Pokemon no encontrado</span>
+                :
+                    (isLoading === true) ?
+                    <span className="alert alert-danger form-control">cargando...</span>  
+                    :      
+                    <CardPokemons pokemons={pokemons} />
                 
             }
 
