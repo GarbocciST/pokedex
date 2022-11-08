@@ -32,7 +32,7 @@ export const SerachBar = () => {
   return (
     
     <form onSubmit={onSearchSubmit}>
-      <div className="col-4 d-inline-block">
+      <div className="col-4 d-inline-block m-2">
         <input type="text" name="searchText" value={searchText} onChange={onInputChange} className=" form-control" placeholder="Buscar pokemon..." />
       </div>
       <div className="col-1 d-inline-block p-1">

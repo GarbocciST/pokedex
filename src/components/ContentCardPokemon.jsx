@@ -17,7 +17,7 @@ export const ContentCardPokemon = ({poke}) => {
                 {
                     poke.types.map( (type) => {
                         return (
-                            <div className="card-type-text" key={type.type.name}
+                            <div className="card-type-text rounded-2" key={type.type.name}
                             >
                                 {type.type.name}
                             </div>

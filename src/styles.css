@@ -12,7 +12,7 @@
     /* margin: 1.1%; */
     margin-left: 30px;
     margin-top: 20px;
-    background-color: rgb(39, 17, 17);
+    background-color: rgb(120, 120, 120);
     min-width: 190px;
     
     
@@ -25,7 +25,10 @@
 .card-type-text {
     margin-right: 20px;
     margin-left: 5px;
+    background-color: rgb(254, 212, 212);
+    
 }
+
 
 .button-back {
     padding-right: 3%;
