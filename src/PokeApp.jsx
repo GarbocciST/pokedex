@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ButtonBar, CardPokemons, HeaderBar, SerachBar } from './components';
-import { useLocalStorage } from './hooks';
 import { getPokemons } from './store';
 
 
@@ -21,28 +20,6 @@ export const PokeApp = () => {
     
     
     //* Grabar en localStorage
-
-    // const [storedValue, setStoredValue] = useState('')
-
-    // const setLocalStorage = (page) => {
-    //    window.localStorage.setItem('page', JSON.stringify(page))
-      
-    // }
-    
-
-    // const getLocalStorage = () => {
-    //    const item = JSON.parse(window.localStorage.getItem('page'));
-    //    setStoredValue(item);
-    // }
-
-    // useEffect(() => {
-    //     setLocalStorage(page);
-    // }, [pokemons]); 
-
-    // useEffect(() => {
-    //     getLocalStorage();
-    // }, []); 
-
    
     
 
