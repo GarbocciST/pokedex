@@ -13,18 +13,22 @@ export const PokeApp = () => {
 
     useEffect(() => {
         dispatch( getPokemons() );
+
+       
     }, []); 
     
+    // console.log(pokemons[0].sprites.other)
     
     //! Deberian aparecer 12 pokemones, no 10, pero hasta que no resuelva el problema de memoria seran 10 pokes
     
     
-    //* Grabar en localStorage
+    //* Grabar en localStorage ( persist:root )
    
-    
 
-    //* Componente extra (contentCardPokemons) y en el 
-    //* effect haga llamado al dispatch y tenga esa llamada exclusivamente a la imagen
+
+
+    //* Componente extra (contentCardPokemons)  
+    //* y en el effect haga llamado al dispatch y tenga esa llamada exclusivamente a la imagen
 
 
     return (
