@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// const item = sessionStorage.getItem('page') != null ? JSON.parse(sessionStorage.getItem('page')) : 0
+
 export const pokeSlice = createSlice({
     name: 'poke',
     initialState: {

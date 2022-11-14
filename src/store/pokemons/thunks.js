@@ -9,7 +9,7 @@ export const getPokemons = (page = 0) => {
         try {
             dispatch(startLoadingPokemons());
     
-            const {data} = await pokemonApi.get(`pokemon?limit=10&offset=${page * 10}`);
+            const {data} = await pokemonApi.get(`pokemon?limit=12&offset=${page * 10}`);
             // console.log(data.results);
     
             
@@ -24,9 +24,25 @@ export const getPokemons = (page = 0) => {
             const results = await Promise.all(promesas)
             
             const idx = results.map( index => {
+                delete index.data.abilities
+                delete index.data.base_experience
+                delete index.data.forms
+                delete index.data.game_indices
+                delete index.data.height
+                delete index.data.held_items
+                delete index.data.is_default
+                delete index.data.location_area_encounters
+                delete index.data.order
+                delete index.data.past_types
+                delete index.data.species
+                delete index.data.weight
+                delete index.data.stats
+                delete index.data.moves
+
                 return index.data
                 
             });
+
 
             dispatch(setPokemons({ pokemons: idx, page: page }));
             
